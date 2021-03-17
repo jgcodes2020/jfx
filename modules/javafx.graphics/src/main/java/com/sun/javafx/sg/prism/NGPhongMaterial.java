@@ -33,7 +33,8 @@ import com.sun.prism.TextureMap;
 import com.sun.prism.paint.Color;
 
 /**
- * TODO: 3D - Need documentation
+ * TODO: 3D - Need documentation<br>
+ * Represents a native Phong material.
  */
 public class NGPhongMaterial {
 
