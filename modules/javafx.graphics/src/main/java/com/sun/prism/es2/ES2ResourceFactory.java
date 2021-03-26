@@ -319,8 +319,8 @@ public class ES2ResourceFactory extends BaseShaderFactory {
                 System.out.println("ES2ResourceFactory: Prism - createStockShader: " + name + ".frag");
             }
             Method m =
-                    klass.getMethod("loadShader", new Class[]{ShaderFactory.class,
-                        InputStream.class});
+                    klass.getMethod("loadShader", ShaderFactory.class,
+                            InputStream.class);
             return (Shader) m.invoke(null, new Object[]{this, stream});
         } catch (Throwable e) {
             e.printStackTrace();

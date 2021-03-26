@@ -28,7 +28,7 @@ package com.sun.prism.d3d;
 import com.sun.prism.Image;
 import com.sun.prism.PhongMaterial;
 import com.sun.prism.Texture;
-import com.sun.prism.TextureMap;
+import com.sun.prism.PhongTextureMap;
 import com.sun.prism.impl.BaseGraphicsResource;
 import com.sun.prism.impl.Disposer;
 import com.sun.javafx.logging.PlatformLogger;
@@ -42,7 +42,7 @@ class D3DPhongMaterial extends BaseGraphicsResource implements PhongMaterial {
 
     private final D3DContext context;
     private final long nativeHandle;
-    private TextureMap maps[] = new TextureMap[MAX_MAP_TYPE];
+    private PhongTextureMap maps[] = new PhongTextureMap[MAX_MAP_TYPE];
 
     private D3DPhongMaterial(D3DContext context, long nativeHandle,
             Disposer.Record disposerRecord) {
@@ -72,11 +72,11 @@ class D3DPhongMaterial extends BaseGraphicsResource implements PhongMaterial {
     }
 
     @Override
-    public void setTextureMap(TextureMap map) {
+    public void setTextureMap(PhongTextureMap map) {
         maps[map.getType().ordinal()] = map;
     }
 
-    private Texture setupTexture(TextureMap map, boolean useMipmap) {
+    private Texture setupTexture(PhongTextureMap map, boolean useMipmap) {
         Image image = map.getImage();
         Texture texture = (image == null) ? null
                 : context.getResourceFactory().getCachedTexture(image, Texture.WrapMode.REPEAT, useMipmap);

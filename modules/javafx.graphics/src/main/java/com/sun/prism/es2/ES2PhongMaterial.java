@@ -29,7 +29,7 @@ import com.sun.javafx.PlatformUtil;
 import com.sun.prism.Image;
 import com.sun.prism.PhongMaterial;
 import com.sun.prism.Texture;
-import com.sun.prism.TextureMap;
+import com.sun.prism.PhongTextureMap;
 import com.sun.prism.impl.BaseGraphicsResource;
 import com.sun.prism.impl.Disposer;
 import com.sun.prism.paint.Color;
@@ -43,7 +43,7 @@ class ES2PhongMaterial extends BaseGraphicsResource implements PhongMaterial {
     static int count = 0;
     private final ES2Context context;
     private final long nativeHandle;
-    TextureMap maps[] = new TextureMap[MAX_MAP_TYPE];
+    PhongTextureMap maps[] = new PhongTextureMap[MAX_MAP_TYPE];
 
     Color diffuseColor = Color.WHITE;
     Color specularColor = Color.WHITE;
@@ -78,11 +78,11 @@ class ES2PhongMaterial extends BaseGraphicsResource implements PhongMaterial {
     }
 
     @Override
-    public void setTextureMap(TextureMap map) {
+    public void setTextureMap(PhongTextureMap map) {
         maps[map.getType().ordinal()] = map;
     }
 
-    private Texture setupTexture(TextureMap map, boolean useMipmap) {
+    private Texture setupTexture(PhongTextureMap map, boolean useMipmap) {
         Image image = map.getImage();
         Texture texture = (image == null) ? null
                 : context.getResourceFactory().getCachedTexture(image, Texture.WrapMode.REPEAT, useMipmap);

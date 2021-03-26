@@ -69,9 +69,13 @@ Vector function | Description
 
 Sampler function | Description
 --- | ---
-`sample(sampler, position`
+`sample(sampler, position)` | reads a pixel from the sampler at `position`
 
 # Implicit globals
-JSL provides implicit globals.
+JSL provides implicit globals, which provide direct output and input.
 ## Pixel/Fragment shaders
 The desired color can be assigned to the implicit global variable `color`.
+
+# Glue code
+Glue code is enclosed in double triangle brackets `<<like this>>`. The JSL compiler converts this to Java template code 
+which can then interface with the shader.

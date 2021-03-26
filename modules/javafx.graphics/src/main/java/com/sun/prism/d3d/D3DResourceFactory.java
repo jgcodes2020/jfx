@@ -408,9 +408,10 @@ class D3DResourceFactory extends BaseShaderFactory {
                     (PrivilegedAction<InputStream>) () -> D3DResourceFactory.class.
                            getResourceAsStream("hlsl/" + name + ".obj")
             );
+            // calls prism loader glue
             Class klass = Class.forName("com.sun.prism.shader." + name + "_Loader");
             Method m = klass.getMethod("loadShader",
-                new Class[] { ShaderFactory.class, InputStream.class });
+              ShaderFactory.class, InputStream.class);
             return (Shader)m.invoke(null, new Object[] { this, stream });
         } catch (Throwable e) {
             e.printStackTrace();

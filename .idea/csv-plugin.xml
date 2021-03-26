@@ -3,7 +3,21 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="\.github\workflows\submit.yml">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\modules\javafx.graphics\src\jslc\resources\com\sun\scenario\effect\compiler\informal-jsl-spec.md">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\modules\javafx.graphics\src\main\java\com\sun\javafx\sg\prism\ParameterMap.java">
           <value>
             <Attribute>
               <option name="separator" value="," />
@@ -14,6 +28,20 @@
           <value>
             <Attribute>
               <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\modules\javafx.graphics\src\main\java\javafx\scene\paint\Shader.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\modules\javafx.graphics\src\main\jsl-prism\PrismLoaderGlue.stg">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>

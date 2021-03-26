@@ -6,35 +6,26 @@ import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 
 /**
- * Represents a material coloured by a user-defined shader.
+ * Represents a material coloured by a user-defined fragment shader.
  * @author Jacky Guo
  */
 public class ShadedMaterial extends Material {
-  private final ObjectProperty<Shader> shader = new SimpleObjectProperty<>();
+  private final ObjectProperty<Shader> fragmentShader = new SimpleObjectProperty<>();
 
   /**
    * Creates a new {@code ShadedMaterial} using the given {@link Shader}.
-   * @param shader the shader to use with this material
+   * @param shader the shader to use with this material. Use {@code null} to use the internal default shader.
    */
   public ShadedMaterial(Shader shader) {
-    this.shader.setValue(shader);
-    shader.link(this);
+    super();
+
+    this.fragmentShader.set(shader);
+    if (shader != null)
+      shader.link(this);
   }
 
-  /**
-   * Returns the value of the {@code shader} property.
-   * @return the value of the shader property
-   */
-  public Shader getShader() {
-    return shader.get();
-  }
-
-  /**
-   * The shader that was used to construct this {@code ShadedMaterial}.
-   * @return a read-only property referencing the shader
-   */
-  public ReadOnlyObjectProperty<Shader> shaderProperty() {
-    return shader;
+  public Shader getFragmentShader() {
+    return fragmentShader.get();
   }
 
   @Override
@@ -45,5 +36,12 @@ public class ShadedMaterial extends Material {
   @Override
   NGPhongMaterial getNGMaterial() {
     return null;
+  }
+
+  @Override
+  public String toString() {
+    return "ShadedMaterial[" +
+            "fragmentShader=" + fragmentShader +
+            ']';
   }
 }

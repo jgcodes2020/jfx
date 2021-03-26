@@ -4,31 +4,20 @@ import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
 
 import java.net.URL;
+import java.util.Objects;
 
 /**
  * Represents a compiled shader. It contains methods to pass data to the underlying shader program.
  * @author Jacky Guo
  */
 public final class Shader {
-  /**
-   * Represents the types of shader.
-   */
-  public enum Type {
-    /**
-     * Indicates a vertex shader.
-     */
-    VERTEX,
-    /**
-     * Indicates a fragment shader (aka pixel shader).
-     */
-    FRAGMENT
-  }
+
   /**
    * Compiles the JSL shader at the given URL, returning a {@code Shader} object.
    * @param url the URL of the JSL shader
    * @return a new {@code Shader} which is compiled from {@code url}
    */
-  public static Shader compile(URL url, Shader.Type type) {
+  public static Shader compile(URL url) {
     // TODO call JSL compiler and generate native peer
     return null;
   }
@@ -48,15 +37,6 @@ public final class Shader {
    * @param value the value to pass to that variable
    */
   public void pass(String name, int value) {
-
-  }
-
-  /**
-   * Passes a {@code bool} value to the shader.
-   * @param name a variable name
-   * @param value the value to pass to that variable
-   */
-  public void pass(String name, boolean value) {
 
   }
 

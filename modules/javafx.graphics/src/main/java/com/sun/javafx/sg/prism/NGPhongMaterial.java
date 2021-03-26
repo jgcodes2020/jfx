@@ -29,7 +29,7 @@ import com.sun.prism.Image;
 import com.sun.prism.Material;
 import com.sun.prism.PhongMaterial;
 import com.sun.prism.ResourceFactory;
-import com.sun.prism.TextureMap;
+import com.sun.prism.PhongTextureMap;
 import com.sun.prism.paint.Color;
 
 /**
@@ -43,17 +43,17 @@ public class NGPhongMaterial {
 
     private Color diffuseColor;
     private boolean diffuseColorDirty = true;
-    private TextureMap diffuseMap = new TextureMap(PhongMaterial.MapType.DIFFUSE);
+    private PhongTextureMap diffuseMap = new PhongTextureMap(PhongMaterial.MapType.DIFFUSE);
 
     private Color specularColor;
     private boolean specularColorDirty = true;
     private float specularPower;
     private boolean specularPowerDirty = true;
-    private TextureMap specularMap = new TextureMap(PhongMaterial.MapType.SPECULAR);
+    private PhongTextureMap specularMap = new PhongTextureMap(PhongMaterial.MapType.SPECULAR);
 
-    private TextureMap bumpMap = new TextureMap(PhongMaterial.MapType.BUMP);
+    private PhongTextureMap bumpMap = new PhongTextureMap(PhongMaterial.MapType.BUMP);
 
-    private TextureMap selfIllumMap = new TextureMap(PhongMaterial.MapType.SELF_ILLUM);
+    private PhongTextureMap selfIllumMap = new PhongTextureMap(PhongMaterial.MapType.SELF_ILLUM);
 
     Material createMaterial(ResourceFactory f) {
         if (material == null) {
